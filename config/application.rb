@@ -23,5 +23,6 @@ module UserManagement
     config.user_profiles_private = false # Users can view each other by default
     config.meta_public = false # Anonymous users don't get to view the meta
     config.user_profiles_public = false # Profiles can be viewed anonymously
+    config.use_session = true # Session login is permitted
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_23_221311) do
+ActiveRecord::Schema.define(version: 2019_04_24_041715) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,26 @@ ActiveRecord::Schema.define(version: 2019_04_23_221311) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "client_services", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description"
+    t.text "secret_key", null: false
+    t.text "remote_public_key"
+    t.string "algorithm", limit: 50, default: "HS256", null: false
+    t.integer "token_timeout"
+    t.datetime "expire_at"
+    t.boolean "suspended", default: false, null: false
+    t.integer "tag_id"
+    t.text "login_redirect"
+    t.text "logout_redirect"
+    t.boolean "require_signed_request", default: false, null: false
+    t.boolean "force_login", default: false, null: false
+    t.text "login_css"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tag_id"], name: "index_client_services_on_tag_id"
+  end
+
   create_table "tag_mutexes", force: :cascade do |t|
     t.integer "tag_a_id", null: false
     t.integer "tag_b_id", null: false
@@ -40,13 +60,13 @@ ActiveRecord::Schema.define(version: 2019_04_23_221311) do
   end
 
   create_table "tags", force: :cascade do |t|
-    t.string "code"
-    t.string "title"
+    t.string "code", null: false
+    t.string "title", null: false
     t.text "description"
-    t.boolean "immutable"
-    t.boolean "grants_admin"
-    t.boolean "apply_only_by_admin"
-    t.boolean "apply_by_default"
+    t.boolean "immutable", default: false, null: false
+    t.boolean "grants_admin", default: false, null: false
+    t.boolean "apply_only_by_admin", default: false, null: false
+    t.boolean "apply_by_default", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

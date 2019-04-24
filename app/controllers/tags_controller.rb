@@ -6,23 +6,23 @@ class TagsController < ApplicationController
   def index
     @search = Search.new(params[:search])
     @models = @search.filter(results: Tag.all, filter_attrs: [:title, :description, :code])
-    render json: {search: @search, results: @models}
   end
 
   # GET /tags/1
   # GET /tags/1.json
   def show
-    render json: @model
   end
 
   # POST /tags
   # POST /tags.json
   def create
     @model = Tag.new(model_params)
-    if @model.save
-      render json: @model, status: :created, location: @model
-    else
-      render json: @model.errors, status: :unprocessable_entity
+    respond_to do |format|
+      if @model.save
+        format.json { render :show, status: :created, location: @model }
+      else
+        format.json { render json: @model.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -53,6 +53,6 @@ class TagsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def model_params
-      @model_params ||= params.require(:tag).permit(:code, :title, :description, :immutable, :admin, :apply_only_by_admin, :apply_by_default)
+      @model_params ||= params.require(:tag).permit(:code, :title, :description, :admin, :apply_only_by_admin, :apply_by_default)
     end
 end

@@ -1,0 +1,63 @@
+<% if @client_service && @client_service.login_css %>
+  <style type="text/css">
+    <%= @client_service.login_css %>
+  </style>
+<% end %>
+
+<div class="sessions">
+
+  <%= form_with(url: sessions_path, local: true, method: 'post', class: 'login-form') do |form| %>
+
+    <% flash.each do |key, value| %>
+      <div class="notice"><%= value %></div>
+    <% end %>
+
+    <% if @client_service %>
+      <%=form.hidden_field :client_service_id, value: @client_service.id %>
+    <% end %>
+
+    <% if @jwt_request %>
+      <%=form.hidden_field :jwt_request, value: @jwt_request %>
+    <% end %>
+
+    <h1 class="title"><%= @client_service&.title || I18n.t('login_title') %></h1>
+
+    <% if @client_service&.description %>
+      <p class="description"><%= @client_service.description %></p>
+    <% end %>
+
+    <div class="field user-name">
+      <%= form.label :user_name %>
+      <%= form.text_field :user_name %>
+    </div>
+
+    <div class="field password">
+      <%= form.label :password %>
+      <%= form.password_field :password %>
+    </div>
+
+    <div class="controls">
+      <%= form.submit I18n.t('login_action') %>
+    </div>
+
+  <% end %>
+
+  <% if @current_user %>
+    <div class="client-services">
+      <h1 class="title"><%= I18n.t('services_title') %></h1>
+      <% @current_user.client_services.each do |client_service| %>
+        <a class="client-service" href="<%= client_service.user_access_url(@current_user) %>">
+          <% if client_service.icon.attachment %>
+            <%= image_tag client_service.icon.variant(resize: "32x32"), class: "icon" %>
+          <% else %>
+            <div class="initials"><%=client_service.title.strip.split(/\s+/)[0,2].map{|s|s[0,1].upcase}.join('')%></div>
+          <% end %>
+          <span class="title">
+            <%= client_service.title %>
+          </span>
+        </a>
+      <% end %>
+    </div>
+  <% end %>
+
+</div>

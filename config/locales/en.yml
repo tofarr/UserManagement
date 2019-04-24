@@ -30,4 +30,12 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  login_title: "Login"
+  login_action: "Login"
+  login_successful: "You have successfully Logged In"
+  login_failed: "Username or Password Incorrect"
+  services_title: "Available Services"
+  helpers:
+    label:
+      user_name: "Username / Email"
+      password: "Password"

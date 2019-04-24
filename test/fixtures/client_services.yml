@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  secret: MyString
+  algorithm: MyString
+  token_timeout: 1
+  expire_at: 2019-04-23 22:17:15
+  suspended: false
+
+two:
+  secret: MyString
+  algorithm: MyString
+  token_timeout: 1
+  expire_at: 2019-04-23 22:17:15
+  suspended: false

@@ -1,0 +1,125 @@
+
+body{
+  background: #EEE;
+  padding: 1em;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.sessions{
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: row;
+
+  .login-form, .client-services{
+    background: #FFF;
+    border: 1px solid #CCC;
+    border-radius: 0.5rem;
+    min-width: 250px;
+    max-width: 500px;
+    flex-grow: 1;
+    margin: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+  }
+
+  div, h1, input, label, form{
+    box-sizing: border-box;
+  }
+
+  h1{
+    margin: 0;
+    margin-bottom: 1.5rem;
+    line-height: 1.8rem;
+  }
+
+  label{
+    display: block;
+    font-weight: bold;
+    color: #444;
+    padding: 1.5rem 0 0 0.5rem;
+  }
+
+  input{
+    font-size: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #CCC;
+    border-radius: 0.5rem;
+    background: #FFF;
+    outline: none;
+  }
+
+  input[type=text],input[type=password]{
+    width: 100%;
+  }
+
+  input[type=submit]{
+    padding: 0.5rem 2rem;
+    color: #FFF;
+    background: #06C;
+  }
+
+  input,a{
+    transition: font-size 0.4s, border-color 0.4s;
+  }
+
+  a{
+    color: #06C;
+  }
+
+  a:focus, a:hover, input:focus, input:hover{
+    font-size: 1.5rem;
+    border-color: #06C;
+  }
+
+  .login-form{
+    .controls{
+      padding-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .client-service{
+    display: flex;
+    width: 100%;
+    text-decoration: none;
+
+    .title{
+      display: flex;
+      flex-grow: 1;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      text-decoration: underline;
+    }
+  }
+
+  .icon, .initials{
+    width: 32px;
+    height: 32px;
+    border-radius: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  .initials{
+    color: #FFF;
+    background: #06C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.8rem !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .sessions{
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

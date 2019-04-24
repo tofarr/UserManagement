@@ -66,3 +66,6 @@ gem "bcrypt", "~> 3.1"
 
 # Added at 2019-04-23 16:30:12 -0600 by tofarr:
 gem "activestorage-validator", "~> 0.1.2"
+
+# Added at 2019-04-24 10:13:46 -0600 by tofarr:
+gem "jwt", "~> 2.1"
