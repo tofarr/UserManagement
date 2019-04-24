@@ -1,0 +1,18 @@
+
+one:
+  code: admin_tag
+  title: Admin Tag
+  description: An admin tag
+  immutable: true
+  grants_admin: true
+  apply_only_by_admin: true
+  apply_by_default: false
+
+two:
+  code: default_tag
+  title: Default Tag
+  description: A tag applied by default
+  immutable: false
+  grants_admin: false
+  apply_only_by_admin: false
+  apply_by_default: true
