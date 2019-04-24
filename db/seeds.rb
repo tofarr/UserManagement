@@ -10,4 +10,5 @@ ClientService.create(title: "User Management",
   login_css: ".sessions input[type=submit]{background: #ff7043;}
 .sessions a{color: #ff7043;}
 .sessions a:focus, .sessions a:hover, .sessions input:focus, .sessions input:hover{border-color: #ff7043;}
-.sessions .initials{background:#ff7043;}")
+.sessions .initials{background:#ff7043;}
+::selection{background:rgba(255,112,67,0.4);}")

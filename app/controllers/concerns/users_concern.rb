@@ -1,9 +1,8 @@
-#./app/controllers/concerns/foo.rb
 module UsersConcern
   extend ActiveSupport::Concern
 
   included do
-    #before_action :set_model, only: [:show, :edit, :update, :destroy]
+    
     skip_before_action :require_login #Controller handles this in a custom way
     skip_before_action :require_admin #Controller handles this in a custom way
 
